@@ -20,19 +20,34 @@ public class Calculadora {
         double resultado;
         double ecuacion1[][]= new double[1][3];
         double ecuacion2[][]= new double[1][3];
-        Scanner leer = new Scanner(System.in);
+        
         
         
         /**
          * Entrada de constantes
          */
         
-        for(i=0;i<=2;i++){
+        do{
+            Scanner leer = new Scanner(System.in);
+            try
+            {
+                for(i=0;i<=2;i++){
+            
             System.out.println("Ecuacion 1, Ingrese el valor de la constante "+(i+1));
             ecuacion1[0][i]=leer.nextDouble();
+            
             System.out.println("Ecuacion 2, Ingrese el valor de la constante "+(i+1));
             ecuacion2[0][i]=leer.nextDouble();
         }
+                break;
+            }
+            catch(InputMismatchException e)
+            {
+                System.out.println("¡Ingrese un numero porfavor!");
+                System.out.println("El programa se a reiniciado");
+            }
+            
+        }while(true);
         
         /**
          * Se muestran las ecuaciones
