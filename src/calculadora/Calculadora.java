@@ -44,7 +44,7 @@ public class Calculadora {
             catch(InputMismatchException e)
             {
                 System.out.println("¡Ingrese un numero porfavor!");
-                System.out.println("El programa se a reiniciado");
+                System.out.println("El programa se  reiniciara");
             }
             
         }while(true);
@@ -55,13 +55,29 @@ public class Calculadora {
         
         System.out.println("Sus ecuaciones son");
         for(i=0;i<=2;i++){
-            System.out.print(ecuacion1[0][i]+"\t");
+            System.out.print(ecuacion1[0][i]);
+            if(i==0){
+                System.out.print("x"+"\t");
+            }
+            
+            if(i==1){
+                System.out.print("y = ");
+            }
+            
             
         }
         
         System.out.println();
+        
         for(i=0;i<=2;i++){
-            System.out.print(ecuacion2[0][i]+"\t");
+            System.out.print(ecuacion2[0][i]);
+            if(i==0){
+                System.out.print("x"+"\t");
+            }
+            
+            if(i==1){
+                System.out.print("y = ");
+            }
         }
         double Multiplicador, Multiplicador2;
         Multiplicador=ecuacion1[0][0];
