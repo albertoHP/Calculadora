@@ -5,6 +5,7 @@
  */
 package calculadora;
 import java.util.*;
+import javax.swing.JOptionPane;
 /**
  *
  * @author alberto
@@ -21,7 +22,7 @@ public class Calculadora {
         double ecuacion1[][]= new double[1][3];
         double ecuacion2[][]= new double[1][3];
         
-        
+        JOptionPane.showMessageDialog(null,"Calculadora de ecuaciones lineales");
         
         /**
          * Entrada de constantes
@@ -33,52 +34,89 @@ public class Calculadora {
             {
                 for(i=0;i<=2;i++){
             
-            System.out.println("Ecuacion 1, Ingrese el valor de la constante "+(i+1));
-            ecuacion1[0][i]=leer.nextDouble();
+            //System.out.println("Ecuacion 1, Ingrese el valor de la constante "+(i+1));
+            ecuacion1[0][i]=Integer.parseInt(JOptionPane.showInputDialog("Ecuacion 1" +
+               " Ingrese el valor "+(i+1)));
             
-            System.out.println("Ecuacion 2, Ingrese el valor de la constante "+(i+1));
-            ecuacion2[0][i]=leer.nextDouble();
+            //System.out.println("Ecuacion 2, Ingrese el valor de la constante "+(i+1));
+            ecuacion2[0][i]=Integer.parseInt(JOptionPane.showInputDialog("Ecuacion 2" +
+               " Ingrese el valor "+(i+1)));
         }
                 break;
             }
-            catch(InputMismatchException e)
+            catch(NumberFormatException e)
             {
-                System.out.println("¡Ingrese un numero porfavor!");
-                System.out.println("El programa se  reiniciara");
+                JOptionPane.showMessageDialog(null, "Valor ingresado no es un numero",
+  "Ecuaciones lineales", JOptionPane.WARNING_MESSAGE);
+                JOptionPane.showMessageDialog(null, "El programa se reiniciara",
+  "Ecuaciones lineales", JOptionPane.WARNING_MESSAGE);
             }
             
         }while(true);
         
         /**
          * Se muestran las ecuaciones
+         * 
          */
         
-        System.out.println("Sus ecuaciones son");
-        for(i=0;i<=2;i++){
-            System.out.print(ecuacion1[0][i]);
-            if(i==0){
-                System.out.print("x"+"\t");
-            }
-            
-            if(i==1){
-                System.out.print("y = ");
-            }
-            
-            
-        }
         
-        System.out.println();
         
-        for(i=0;i<=2;i++){
-            System.out.print(ecuacion2[0][i]);
-            if(i==0){
-                System.out.print("x"+"\t");
-            }
-            
-            if(i==1){
-                System.out.print("y = ");
-            }
+         String result="";
+           for ( i=0; i<= 2; i++)
+            {
+          result+= "("+ecuacion1[0][i]+")";
+          if(i==0){
+              result+="x + ";
+          }
+          if(i==1){
+              result+=" y =";
+          }
         }
+    JOptionPane.showMessageDialog(null,"La ecuacion 1 es: "+result);
+    
+    String resultt="";
+           for ( i=0; i<= 2; i++)
+            {
+          resultt+= "("+ecuacion2[0][i] + ")";
+          if(i==0){
+              resultt+="x + ";
+          }
+          if(i==1){
+              resultt+="y =";
+          }
+        }
+    JOptionPane.showMessageDialog(null,"La ecuacion 2 es: "+resultt);
+        
+        
+        
+        
+        //System.out.println("Sus ecuaciones son");
+        
+        //for(i=0;i<=2;i++){
+          //  System.out.print(ecuacion1[0][i]);
+            //if(i==0){
+              //  System.out.print("x"+"\t");
+            //}
+            
+            //if(i==1){
+             //   System.out.print("y = ");
+            //}
+            
+            
+        //}
+        
+        //System.out.println();
+        
+        //for(i=0;i<=2;i++){
+          //  System.out.print(ecuacion2[0][i]);
+            //if(i==0){
+              //  System.out.print("x"+"\t");
+            //}
+            
+            //if(i==1){
+              //  System.out.print("y = ");
+            //}
+        //}
         double Multiplicador, Multiplicador2;
         Multiplicador=ecuacion1[0][0];
         Multiplicador2=ecuacion2[0][0];
@@ -145,12 +183,14 @@ public class Calculadora {
          * Se muestran los valores
          */
         
-        System.out.println("Los valores son");
-        System.out.print("x="+x+"\t");
+        JOptionPane.showMessageDialog(null,"Los valores son: x="+x+"  y="+y);
+       
+        //System.out.println("Los valores son");
+        //System.out.print("x="+x+"\t");
         
-        System.out.print("y="+y);
+        //System.out.print("y="+y);
         
-        System.out.println();
+        //System.out.println();
         
         
         
